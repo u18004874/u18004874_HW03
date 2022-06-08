@@ -1,0 +1,31 @@
+﻿@model List<INF_HW3.Models.FileModel>   /*Global model object*/
+
+@{
+    ViewBag.Title = "Files";
+}
+
+<div class="container-fluid">
+    <h2>Video Files</h2>
+    <h5>Download Videos</h5>
+</div>
+<br />
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var file in Model) // access list of FileModels
+        {
+            <div class="col-lg-4">
+                <div class="card" style="width: 20rem;">
+                    <a href="@Url.Content("~/Content/Media/Videos/" + @file.FileName)">
+                        <video class="gallery card-img-top img-rounded" height="210" width="300" src="~/Content/Media/Videos/@file.FileName" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@file.FileName</h5>
+                        <button class="btn btn-success" onclick="window.location.href='@Url.Action("DownloadFile", "Media", new { filename = file.FileName, filetype = file.FileType })'">Download</button>
+                        <button class="btn btn-danger" onclick="window.location.href='@Url.Action("DeleteFile", "Media", new { filename = file.FileName, filetype = file.FileType })'">Delete</button>
+                    </div>
+                </div>
+                <br />
+            </div>
+        }
+    </div>
+</div>

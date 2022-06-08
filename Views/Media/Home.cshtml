@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+<div class="container-fluid">
+    <h2>My Home Page</h2>
+    <h5>Sub-heading for home</h5>
+</div>
+<br />
+<div class="container-fluid bg-info">
+
+    <div class="row">
+        <div class="col-lg-8">
+            <h2>Description</h2>
+            <p>Etiam in tempus nisl. Phasellus consectetur augue eget leo tristique, eu elementum magna dictum. In efficitur maximus sem, ac rhoncus sem blandit at. Sed ut sagittis magna. Sed tempus sapien in leo sollicitudin, id volutpat diam fermentum. Ut at erat at nisl finibus finibus. Phasellus placerat tellus non mi malesuada, quis aliquet risus laoreet. Praesent bibendum velit et laoreet facilisis. Donec lobortis magna metus, non pharetra metus mattis vehicula. Nullam commodo magna eget tellus maximus placerat ac quis nisl. Morbi dignissim diam quis ante pulvinar pharetra. Aliquam dictum ut nulla quis posuere. Morbi aliquam ipsum gravida velit fringilla pellentesque.</p>
+            <p>Vivamus dolor ligula, dictum a ante eu, consectetur mollis urna. Vestibulum ultrices tellus sed nibh feugiat iaculis. Duis elementum mauris sit amet efficitur gravida. Donec a dui venenatis, tristique neque eu, hendrerit ipsum. Nam auctor turpis ut fermentum hendrerit. Aliquam erat volutpat. Etiam metus leo, scelerisque eget tempor eu, tempus eget sapien. Phasellus id varius turpis, vel fermentum enim.</p>
+        </div>
+
+        @using (Html.BeginForm("Home", "Media", FormMethod.Post, new { enctype = "multipart/form-data" })) //enctype needed for file upload, means it contains more than just text
+        {
+            <div class="col-lg-4">
+                <h2>Option Selection</h2>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Radios" id="DocumentRadio" value="Document">
+                        <label class="form-check-label" for="DocumentRadio">
+                            Document
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Radios" id="ImageRadio" value="Image">
+                        <label class="form-check-label" for="ImageRadio">
+                            Image
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Radios" id="VideoRadio" value="Video">
+                        <label class="form-check-label" for="VideoRadio">
+                            Video
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <input type="file" class="form-control" name="file" />
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        }
+    </div>
+</div>
+

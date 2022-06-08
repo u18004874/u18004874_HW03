@@ -1,0 +1,39 @@
+﻿@model List<INF_HW3.Models.FileModel>   /*Global model object*/
+
+@{
+    ViewBag.Title = "Files";
+}
+
+<div class="container-fluid">
+    <h2>Documents of any file type</h2>
+    <h5>Download Documents</h5>
+</div>
+<br />
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr style="background-color:black; color:white">
+                        <th>File Name</th>
+                        <th>Download Option</th>
+                        <th>Delete Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var file in Model) // access list of FileModels
+                    {
+                    <tr>
+                        <td>@file.FileName</td>
+                        <td><button class="btn btn-success" onclick="window.location.href='@Url.Action("DownloadFile", "Media", new { filename = file.FileName, filetype = file.FileType })'">Download</button></td> <!-- Inject razor that will do download when clicked-->
+                        <!-- Will go to DownloadFile in Media and try and send the fileName there-->
+                        <td><button class="btn btn-danger" onclick="window.location.href='@Url.Action("DeleteFile", "Media", new { filename = file.FileName, filetype = file.FileType })'">Delete</button></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
