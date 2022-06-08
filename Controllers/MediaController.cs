@@ -143,7 +143,7 @@ namespace INF_HW3.Controllers
             {
                 FileModel foundFile = new FileModel(); // create new file object for each video in Videopaths
                 foundFile.FileName = Path.GetFileName(file);
-                foundFile.FileType = "img";
+                foundFile.FileType = "vid";
                 Videos.Add(foundFile); // Add to Videos list
             }
 
